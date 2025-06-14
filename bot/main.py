@@ -29,9 +29,9 @@ bW = {
     "bitch",
     "mf"
 }
-counter = 0
+
 # trial 2 
-@app.on_message(filters.private and filters.command("check"))
+@app.on_message(filters.private)
 def private_chat_handler(client, message):
     
     nltk.download('punkt_tab')
@@ -44,8 +44,8 @@ def private_chat_handler(client, message):
     wordsList = len([w for w in tokenized if w in bW]) 
 
     
-    counter+=1
-    message.reply_text("Cuss Counter: "+str(counter))
+    
+    message.reply_text("Cuss Counter: "+wordList)
 
       
 if __name__ == "__main__":
