@@ -1,6 +1,12 @@
+click==8.2.1
+colorama==0.4.6
 dotenv==0.9.9
+joblib==1.5.1
+nltk==3.9.1
 pyaes==1.6.1
 Pyrogram==2.0.106
 PySocks==1.7.1
 python-dotenv==1.1.0
+regex==2024.11.6
 TgCrypto==1.2.5
+tqdm==4.67.1
