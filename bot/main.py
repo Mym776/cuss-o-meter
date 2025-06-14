@@ -26,18 +26,18 @@ def private_chat_handler(client, message):
     tokenized = sent_tokenize(message)
     for i in tokenized:
     
-    # Word tokenizers is used to find the words 
-    # and punctuation in a string
-    wordsList = nltk.word_tokenize(i)
+        # Word tokenizers is used to find the words 
+        # and punctuation in a string
+        wordsList = nltk.word_tokenize(i)
 
-    # removing stop words from wordList
-    wordsList = [w for w in wordsList if not w in stop_words] 
+        # removing stop words from wordList
+        wordsList = [w for w in wordsList if not w in stop_words] 
 
-    #  Using a Tagger. Which is part-of-speech 
-    # tagger or POS-tagger. 
-    tagged = nltk.pos_tag(wordsList)
+        #  Using a Tagger. Which is part-of-speech 
+        # tagger or POS-tagger. 
+        tagged = nltk.pos_tag(wordsList)
 
-    message.reply_text(tagged)
+        message.reply_text(tagged)
 
       
 if __name__ == "__main__":
