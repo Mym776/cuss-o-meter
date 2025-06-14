@@ -11,6 +11,11 @@ def private_chat_handler(client, message):
 @app.on_message(filters.command("start") & filters.group)
 def group_start_handle(client, message):
     message.reply_text("Hello! I'm Cuss-o-meter. The greatest cussing meter bot.")
-        
+
+# trial 
+@app.on_message(filters.private & filters.command("cuss"))
+def private_chat_handler(client, message):
+    message.reply_text("that aint funny cuhh")
+      
 if __name__ == "__main__":
     app.run()
