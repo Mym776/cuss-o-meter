@@ -20,7 +20,7 @@ def private_chat_handler(client, message):
     message.reply_text("that aint funny cuhh")
 
 # trail 2 
-@app.on_message()
+@app.on_message(filters.private)
 def private_chat_handler(client, message):
     stop_words = set(stopwords.words('english'))
     tokenized = sent_tokenize(message)
