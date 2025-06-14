@@ -22,8 +22,9 @@ def private_chat_handler(client, message):
 # trail 2 
 @app.on_message(filters.private)
 def private_chat_handler(client, message):
+    
     stop_words = set(stopwords.words('english'))
-    tokenized = sent_tokenize(message)
+    tokenized = sent_tokenize(message.text)
     for i in tokenized:
     
         # Word tokenizers is used to find the words 
