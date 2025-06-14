@@ -19,26 +19,32 @@ def group_start_handle(client, message):
 def private_chat_handler(client, message):
     message.reply_text("that aint funny cuhh")
 
-# trail 2 
-@app.on_message(filters.private)
+
+# bad words list, trial
+bW = {
+    "fuck",
+    "damn",
+    "shit",
+    "bitch",
+    "mf"
+}
+counter = 0
+# trial 2 
+@app.on_message(filters.private and filters.command("check"))
 def private_chat_handler(client, message):
     
-    stop_words = set(stopwords.words('english'))
-    tokenized = sent_tokenize(message.text)
-    for i in tokenized:
+    nltk.download('punkt_tab')
+    nltk.download('averaged_perceptron_tagger_eng')
     
-        # Word tokenizers is used to find the words 
-        # and punctuation in a string
-        wordsList = nltk.word_tokenize(i)
+   
+    tokenized = word_tokenize(message.text)
 
-        # removing stop words from wordList
-        wordsList = [w for w in wordsList if not w in stop_words] 
+    
+    wordsList = len([w for w in tokenized if w in bW]) 
 
-        #  Using a Tagger. Which is part-of-speech 
-        # tagger or POS-tagger. 
-        tagged = nltk.pos_tag(wordsList)
-
-        message.reply_text(tagged)
+    
+    counter+=1
+    message.reply_text("Cuss Counter: "+str(counter))
 
       
 if __name__ == "__main__":
