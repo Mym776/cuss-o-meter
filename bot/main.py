@@ -37,7 +37,7 @@ def private_chat_handler(client, message):
     # tagger or POS-tagger. 
     tagged = nltk.pos_tag(wordsList)
 
-    print(tagged)
+    message.reply_text(tagged)
 
       
 if __name__ == "__main__":
