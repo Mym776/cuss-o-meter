@@ -11,7 +11,7 @@ source .venv/bin/activate
 
 # Install/update dependencies
 pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r requirement.txt
 
 # Run the bot
 python bot/main.py
