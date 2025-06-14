@@ -3,6 +3,7 @@ from config import BOT_TOKEN, API_HASH, API_ID
 
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
+import nltk
 
 app = Client("Cuss-o-meter", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
 
