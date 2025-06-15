@@ -1,9 +1,11 @@
+import nltk
+
 from pyrogram import Client, filters
 from config import BOT_TOKEN, API_HASH, API_ID
 
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
-import nltk
+from nltk.stem import PorterStemmer
 
 app = Client("Cuss-o-meter", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
 
@@ -37,15 +39,18 @@ def private_chat_handler(client, message):
     nltk.download('punkt_tab')
     nltk.download('averaged_perceptron_tagger_eng')
     
+    # porter turns every word into its base form
+    porter = PorterStemmer()    
    
+    # changes the sentence into a 
     tokenized = word_tokenize(message.text)
 
-    
-    wordsList = len([w for w in tokenized if w in bW]) 
+    #turns each word into its base form and checks if it exists in the bad word list
+    wordsList = len([w for w in tokenized if porter.stem(w) in bW]) 
 
     
     
-    message.reply_text("Cuss Counter: "+wordList)
+    message.reply_text("Cuss Counter: "+str(wordsList))
 
       
 if __name__ == "__main__":
