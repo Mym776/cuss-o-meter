@@ -6,8 +6,10 @@ from config import BOT_TOKEN, API_HASH, API_ID
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.stem import PorterStemmer
+from backend.db import dbConnect
 
-app = Client("Cuss-o-meter", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
+dbConnect()
+#app = Client("Cuss-o-meter", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
 
 @app.on_message(filters.private & filters.command("start"))
 def private_chat_handler(client, message):
@@ -54,4 +56,4 @@ def private_chat_handler(client, message):
 
       
 if __name__ == "__main__":
-    app.run()
+    dbConnect()
